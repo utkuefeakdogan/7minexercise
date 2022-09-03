@@ -1,19 +1,17 @@
 package com.example.a7minexercise
 
+import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.provider.MediaStore
 import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.View
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a7minexercise.databinding.ActivityExerciseBinding
-import org.w3c.dom.Text
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -143,11 +141,9 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 setupRestView()
             } else {
 
-                Toast.makeText(
-                    this@ExerciseActivity,
-                    "Congratulations! You have completed the 7 minutes workout.",
-                    Toast.LENGTH_SHORT
-                ).show() }
+                finish()
+                val intent = Intent(this@ExerciseActivity,FinishActivity::class.java)
+                startActivity(intent) }
             }
         }.start()
 
